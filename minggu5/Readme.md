@@ -55,3 +55,31 @@ int pangkatBF(){
 jawaban : 
 -> pangkatBF() menggunakan metode Brute Force dengan perulangan, nilai basis dikalikan dengan dirinya sendiri secara berulang sebanyak nilai pangkat sampai menghasilkan hasil akhir.
 -> pangkatDC() menggunakan metode Divide and Conquer dengan rekursi, yaitu fungsi memanggil dirinya sendiri dengan nilai pangkat yang lebih kecil (biasanya dibagi dua) hingga mencapai kondisi dasar, kemudian hasilnya digabungkan kembali untuk mendapatkan hasil akhir.
+
+PERTANYAAN PERCOBAAN 3 
+
+1.	Kenapa dibutuhkan variable mid pada method TotalDC()?
+jawaban : Variabel mid berfungsi untuk menentukan titik tengah array antara indeks l (left) dan r (right), setelah itu array dibagi 2, 
+totalDC(arr, l, mid) → menghitung total pada bagian kiri array
+totalDC(arr, mid+1, r) → menghitung total pada bagian kanan array
+
+2.	Untuk apakah statement di bawah ini dilakukan dalam TotalDC()?
+double lsum = totalDC(arr, l, mid);
+double rsum = totalDC(arr, mid+1, r);
+jawaban :  digunakan untuk menghitung jumlah elemen array pada dua bagian yang telah dibagi dalam proses algoritma Divide and Conquer. 
+
+totalDC(arr, l, mid) digunakan untuk menghitung total nilai pada bagian kiri array (dari indeks l sampai mid), Hasilnya disimpan pada variabel lsum.
+totalDC(arr, mid+1, r) digunakan untuk menghitung total nilai pada bagian kanan array (dari indeks mid+1 sampai r), Hasilnya disimpan pada variabel rsum.
+
+3.	Kenapa diperlukan penjumlahan hasil lsum dan rsum seperti di bawah ini?
+return lsum+rsum;
+jawaban : karena untuk menggabungkan hasil penjumlahan dari 2 bagian array yang telah dihitung sebelumnya, Variabel lsum menyimpan hasil penjumlahan elemen pada bagian kiri array, Variabel rsum menyimpan hasil penjumlahan elemen pada bagian kanan array.
+ 
+4.	Apakah base case dari totalDC()?
+jawaban : Ya, benar base casenya dari totalDC(), yaitu dibagian 
+if (l == r) {
+    return arr[l];
+}
+
+5.	Tarik Kesimpulan tentang cara kerja totalDC()
+jawaban : Method totalDC() bekerja menggunakan algoritma Divide and Conquer untuk menghitung total nilai elemen dalam array. Cara kerjanya yaitu dengan membagi array menjadi dua bagian, kemudian setiap bagian dihitung jumlahnya secara rekursif sampai mencapai base case. Setelah itu, hasil penjumlahan dari bagian kiri dan kanan digabungkan kembali dengan menjumlahkan lsum dan rsum sehingga diperoleh total keseluruhan elemen array. 
